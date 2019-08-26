@@ -1,0 +1,28 @@
+<apex:page controller="dynpicklist" tabStyle="Contact">
+    <apex:form >
+        <apex:pageBlock >
+            <h1>Agent</h1>
+            <apex:selectList size="1" value="{!var1}">
+                <apex:selectOptions value="{!numberOfQuestions }"/>
+                <apex:actionSupport event="onchange" action="{!showQuestions}" reRender="abcd">
+                    <apex:param value="Agent" assignTo="{!Domain}" />
+                </apex:actionSupport>
+            </apex:selectList>
+            
+            <h1>Region</h1>
+            <apex:selectList size="1" value="{!var2}">
+                <apex:selectOptions value="{!numberOfQuestions }"/>
+                <apex:actionSupport event="onchange" action="{!showQuestions}" reRender="abcd">
+                    <apex:param value="Region" assignTo="{!Domain}" />
+                </apex:actionSupport>
+            </apex:selectList>
+            
+            <br/><br/>
+            
+            <apex:outputPanel id="abcd">
+                {!message}
+            </apex:outputPanel>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
